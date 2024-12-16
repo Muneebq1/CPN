@@ -1,0 +1,117 @@
+{
+  "env": {
+    "node": true,
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "prettier",
+    "simple-import-sort"
+  ],
+  "rules": {
+    // https://eslint.org/docs/latest/rules/
+    "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "@typescript-eslint/prefer-optional-chain": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "prefer-template": "error",
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "comma-dangle": "off",
+    "camelcase": "off",
+    "spaced-comment": "warn",
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "no-duplicate-imports": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "no-constant-binary-expression": "error",
+    "no-await-in-loop": "error",
+    "prefer-arrow-callback": ["error", { "allowUnboundThis": false }],
+    "prefer-const": "error",
+    "prefer-destructuring": "warn",
+    "prefer-spread": "warn",
+    "no-self-compare": "error",
+    "no-template-curly-in-string": "warn",
+    "dot-notation": "error",
+    "eqeqeq": "error",
+    "no-alert": "error",
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-else-return": "error",
+    "no-nested-ternary": "off",
+    "no-var": "error",
+    "require-await": "error",
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  },
+  "overrides": [
+    {
+      "parser": "@typescript-eslint/parser",
+      "files": ["**/*.js", "**/*.jsx", "**/*.ts", "**/*.tsx"],
+      "rules": {
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              // `react` first, `next` second, then packages starting with a character
+              ["^react$", "^react", "^next", "^[a-zA-Z]"],
+              // Packages starting with `@`
+              ["^@"],
+              // Packages starting with `~`
+              ["^~"],
+              // Imports starting with `src/`
+              ["^src/"],
+              // Imports starting with `../`
+              ["^src/", "^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              // Imports starting with `./`
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"],
+              // Style imports
+              ["^.+\\.s?css$"],
+              // Side effect imports
+              ["^\\u0000"]
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["**/*.jsx", "**/*.tsx"],
+      "rules": {
+        "max-lines": [
+          "error",
+          { "max": 150, "skipBlankLines": true, "skipComments": true }
+        ]
+      }
+    }
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "paths": ["./src"]
+      },
+      "typescript": {}
+    }
+  }
+}
