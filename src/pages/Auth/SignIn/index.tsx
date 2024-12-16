@@ -110,6 +110,7 @@ const SignIn = () => {
 
               <Button
                 variant='link'
+                type='button'
                 onClick={() => navigate(PUBLIC_ROUTES.FORGOT_PASSWORD)}
                 className='text-gray-400 no-underline hover:underline w-fit h-fit'
               >

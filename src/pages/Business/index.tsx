@@ -11,8 +11,6 @@ const Business = () => {
     };
   });
 
-  console.log('check');
-
   return (
     <Container className='bg-transparent !pt-14 backgroundGradient'>
       <CardSection
