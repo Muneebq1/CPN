@@ -5,6 +5,8 @@ import DatePicker from 'react-datepicker';
 
 import { cn } from 'src/lib/utils';
 
+import 'react-datepicker/dist/react-datepicker.css';
+
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
